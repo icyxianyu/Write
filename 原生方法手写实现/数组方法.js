@@ -9,16 +9,15 @@ Array.prototype.reduce = function (callback, init) {
 
 Array.prototype.flat = function (depth = 1) {
     if (depth < 1) return this.slice();
-    const arr = [];
+    const ans = [];
     for (const p of this) {
         if (Array.isArray(p)) {
-            // arr.push()
-            arr.push(...p.flat(depth - 1));
+            ans.push(...p.flat(depth - 1))
         } else {
-            arr.push(p)
+            ans.push(p)
         }
     }
-    return arr;
+    return ans;
 }
 let arr = [1, 2, 3, 4, 5, [10, 15, [10]]];
 
@@ -26,4 +25,4 @@ let arr = [1, 2, 3, 4, 5, [10, 15, [10]]];
 //     return pre + cur;
 // }, 0));
 
-// console.log(arr.flat())
+console.log(arr.flat())
