@@ -2,22 +2,20 @@ Array.prototype.reduce = function (callback, init) {
     let arr = this;
     let ans = init;
     for (const p of arr) {
-        ans = callback(p, ans);
+        ans = callback(ans, p);
     }
     return ans;
 }
 
 Array.prototype.flat = function (depth = 1) {
     if (depth < 1) return this.slice();
-    const ans = [];
-    for (const p of this) {
-        if (Array.isArray(p)) {
-            ans.push(...p.flat(depth - 1))
+    return this.reduce((pre, cur) => {
+        if (Array.isArray(cur)) {
+            return [...pre, ...cur.flat(depth - 1)];
         } else {
-            ans.push(p)
+            return [...pre, cur];
         }
-    }
-    return ans;
+    }, [])
 }
 let arr = [1, 2, 3, 4, 5, [10, 15, [10]]];
 

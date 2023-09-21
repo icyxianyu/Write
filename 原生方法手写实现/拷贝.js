@@ -11,7 +11,6 @@ function deepclone(origin, map = new WeakMap()) {
     }
     if (origin instanceof Date) {
         return new Date(origin)
-
     }
     if (origin instanceof RegExp) {
         return new RegExp(origin)
