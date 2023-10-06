@@ -14,6 +14,7 @@
 // 合并后：  a p b q c r
 
 
+
 function mergeAlternately(word1: string, word2: string): string {
     let l1 = 0;
     let l2 = 0;

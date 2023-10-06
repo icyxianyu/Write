@@ -1,4 +1,6 @@
 // 打家劫舍1
+// 运用方法：动态规划
+// 思路：每次记录当前为前置的总和  与 再前一间前置中和加上当前间  的  最大值
 
 function rob(nums){
     let dp = [];
@@ -12,6 +14,9 @@ function rob(nums){
 
 // 打家劫舍2
 // 首尾相连的房屋  不能同时抢劫
+
+// 思路：分两种情况  1.抢第一间  2.不抢第一间
+
 function rob(nums) {
     if (nums.length === 1) {
         return nums[0];
